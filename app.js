@@ -1,4 +1,20 @@
-let readlineSync = require("readline-sync");
+const textFunction = require("./functions/text-functions.js");
+const readlineSync = require("readline-sync");
+
+// declare functions
+const youDied = textFunction.youDiedText;
+const danger = textFunction.dangerText;
+
+let userName = readlineSync.question("Hey prisoner, give me your name: ");
+
+while (!userName) {
+  userName = readlineSync.question("Hey prisoner, give me your name: ");
+}
+
+const formattedUserName =
+  userName[0].toUpperCase() + userName.slice(1, userName.length);
+
+console.log(`Welcome to your demise ${formattedUserName}!`);
 
 console.log(
   `You wake up in a dark and damp dungeon, feeling disoriented. You realize you've been chained up and your head is pounding. You hear the clink of armor outside the door, and you try to move to get a better look, but your chains hold you in place.`
@@ -22,7 +38,7 @@ if (userResponse === 0) {
   console.log(
     `You struggle against the chains, but they're too tight. You start to panic and make too much noise, alerting your captors. They enter the room and execute you on the spot.`
   );
-  console.log("%cYOU DIED!", "color:red");
+  youDied();
 
   let userChoice = readlineSync.question("did you like my game? ");
   if ((userChoice = "yes")) {
