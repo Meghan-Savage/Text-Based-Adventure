@@ -9,5 +9,8 @@ function dangerText(string) {
 function spiderText(string) {
   return console.log(`\x1b[42m\x1b[30m${string}\x1b[0m`);
 }
+function BleedText(string) {
+  return console.log(`\x1b[41m\x1b[1m${string}\x1b[0m`);
+}
 
-module.exports = { dangerText, youDiedText, spiderText };
+module.exports = { dangerText, youDiedText, spiderText, BleedText };
