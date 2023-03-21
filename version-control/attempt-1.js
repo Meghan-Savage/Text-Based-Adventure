@@ -5,7 +5,8 @@ const readlineSync = require("readline-sync");
 const youDied = textFunction.youDiedText;
 const danger = textFunction.dangerText;
 const poison = textFunction.spiderText;
-const Bleed = textFunction.BleedText;
+const bleed = textFunction.BleedText;
+const press = textFunction.pressText;
 
 let userName = readlineSync.question("Hey prisoner, give me your name: ");
 
@@ -154,7 +155,7 @@ if (userResponse === 0) {
                 }
               } else if (userResponse === 1) {
                 console.log(
-                  "You run into a band of thieves,they mug you and stab you in the neck"
+                  "As you go around the forest.You run into a band of thieves,they mug you and stab you in the neck"
                 );
                 youDied();
                 process.exit();

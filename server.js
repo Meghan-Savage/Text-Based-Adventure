@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
 
 app.get("/gameover", (req, res) => {
   youDiedText();
+  process.exit();
 });
 
 app.listen(port, (res, req) => {

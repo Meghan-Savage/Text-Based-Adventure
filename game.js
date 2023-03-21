@@ -31,9 +31,9 @@ function cursedKingdom() {
   );
 
   let options = [
-    "Try to break free from the chains!",
-    "Stay still and wait for your captors to enter.",
-    "Yell for help!",
+    { prompt: "Try to break free from the chains!", id: 123 },
+    { prompt: "Stay still and wait for your captors to enter.", id: 234 },
+    { prompt: "Yell for help!", id: 456 },
   ];
 
   let userResponse = readlineSync.keyInSelect(
@@ -68,5 +68,5 @@ function cursedKingdom() {
     options = storyPath[3].options;
   }
 }
-
+cursedKingdom();
 module.exports = { cursedKingdom };
