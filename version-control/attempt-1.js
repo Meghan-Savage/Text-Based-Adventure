@@ -308,7 +308,7 @@ if (userResponse === 0) {
                 }
               } else if (userResponse === 1) {
                 console.log(
-                  "You run into a band of thieves,they mug you and stab you in the neck"
+                  "As you make your way past the forest, an ominous shadow catches your eye in the murky sky above. You freeze in terror as it rapidly descends towards you, revealing a monstrous bird with razor-sharp talons and a gaping beak filled with jagged teeth. Before you can even scream, the colossal creature swoops down with lightning speed and snatches you up in its deadly grip. You feel its crushing force as you helplessly struggle, only to be ripped apart by its savage jaws, your screams echoing through the woods as your life is brutally ended.Game Over"
                 );
                 youDied();
                 process.exit();

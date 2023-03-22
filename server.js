@@ -1,5 +1,5 @@
 const express = require("express");
-const { youDiedText } = require("./functions/text-functions");
+const { youDied } = require("./functions/text-functions");
 
 const app = express();
 const port = 3000;
@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/gameover", (req, res) => {
-  youDiedText();
+  youDied();
   process.exit();
 });
 
