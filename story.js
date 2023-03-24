@@ -155,5 +155,5 @@ const gameStory = [
     options: [],
   },
 ];
-console.log(gameStory);
+
 module.exports = { gameStory };

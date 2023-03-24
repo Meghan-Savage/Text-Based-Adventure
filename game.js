@@ -1,13 +1,10 @@
 const readlineSync = require("readline-sync");
-const stories = require("./story");
 const textFunctions = require("./functions/text-functions");
 
 const youDied = textFunctions.youDiedText;
 const danger = textFunctions.dangerText;
 const poison = textFunctions.spiderText;
 const Bleed = textFunctions.BleedText;
-
-let storyPath;
 
 function cursedKingdom() {
   let userName = readlineSync.question("Hey prisoner, give me your name: ");
@@ -21,6 +18,10 @@ function cursedKingdom() {
     userName.slice(1, userName.length).toLowerCase();
 
   console.log(`Welcome to your demise ${formattedUserName}!`);
+
+  async function getStory() {
+    let storyResult = await fetch("localhost:3000/story/");
+  }
 }
 
 module.exports = { cursedKingdom };

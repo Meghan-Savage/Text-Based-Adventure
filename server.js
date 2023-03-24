@@ -1,34 +1,26 @@
 const express = require("express");
 const { youDied, youDiedText } = require("./functions/text-functions");
+const story = require("./story");
 
 const app = express();
 const port = 3000;
+// "/story"is an endpoint
+app.get("/story", (req, res) => {
+  res.send(story);
+});
 
-app.get("/", (req, res) => {
-  console.log("landing page");
-  res.send("<h1>Start Game!</h1>");
-});
-app.get("/died", (req, res) => {
-  console.log("Time to die kids!");
-  res.send("<h1 style='color:red'>YOU DIED!</h1>");
-});
-app.post("/poison", (req, res) => {
-  console.log("crawling up your arm");
-  res.send("<h1 style='color:green'>fucking spider!</h1>");
-});
-app.post("/player", (req, res) => {
-  console.log({
-    Name: "Seifer",
-    Age: 31,
-    Gender: "Male",
-    Class: "Prisoner",
-  });
-  res.send({
-    Name: "Seifer",
-    Age: 31,
-    Gender: "Male",
-    Class: "Prisoner",
-  });
+app.get("/story/:id", (req, res) => {
+  const storyId = +req.params.id;
+
+  if (!parseInt(storyId)) {
+    res.status(404).send("<h1>Story Not Found</h1>");
+  }
+
+  for (let i in story.gameStory) {
+    if (storyId === story.gameStory[i].id) {
+      res.send(story.gameStory[i].story);
+    }
+  }
 });
 
 app.get("/gameover", (req, res) => {
@@ -36,6 +28,6 @@ app.get("/gameover", (req, res) => {
   process.exit();
 });
 
-app.listen(port, (res, req) => {
+app.listen(port, (req, res) => {
   console.log(`app listening on ${port}`);
 });
