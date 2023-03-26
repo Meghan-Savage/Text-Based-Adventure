@@ -32,4 +32,4 @@ function flashText(text, loopCount, delay) {
   });
 }
 
-flashText("You Are Poisoned!", 10, 200);
+module.exports = { flashText };

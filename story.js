@@ -3,6 +3,7 @@ const gameStory = [
     id: 1,
     story:
       "You wake up in a dark and damp dungeon, feeling disoriented. You realize you've been chained up and your head is pounding. You hear the clink of armor outside the door, and you try to move to get a better look, but your chains hold you in place.",
+
     options: [
       { descriptionText: "Try to break free from the chains!", nextPath: 2 },
       {
@@ -17,6 +18,7 @@ const gameStory = [
     id: 2,
     story:
       "You struggle against the chains, but they're too tight. You start to panic and make too much noise, alerting your captors. They enter the room and execute you on the spot. Game over.",
+    youDied: true,
     options: [],
   },
 
@@ -43,12 +45,14 @@ const gameStory = [
     id: 5,
     story:
       "As you lie in wait for your captors to leave, a small black spider creeps up your sleeve, its fangs sinking deep into your skin and injecting a deadly venom that courses through your veins.",
+    poison: true,
     options: [],
   },
   {
     id: 6,
     story:
       "You make your way towards the abandoned castle, but as you enter, you realize it's a trap. The captors were waiting for you, and you're outnumbered. They capture you and torture you until you die. Game over.",
+    youDied: true,
     options: [],
   },
   {
@@ -66,7 +70,8 @@ const gameStory = [
   {
     id: 8,
     story:
-      "As you attempt to sneak through the chaos of the raging battlefield, you suddenly find yourself face-to-face with an enemy mage. In a split second, they unleash a poisonous cloud that surrounds you, choking your lungs and blinding your vision. You cough and struggle for breath, but it's too late. The poison starts to overcome you. Game over.",
+      "As you attempt to sneak through the chaos of the raging battlefield, you suddenly find yourself face-to-face with an enemy mage. In a split second, they unleash a poisonous cloud that surrounds you, choking your lungs and blinding your vision. You cough and struggle for breath, but it's too late. The poison starts to overcome you.",
+    poison: true,
     options: [],
   },
   {
@@ -81,7 +86,8 @@ const gameStory = [
   {
     id: 10,
     story:
-      "As you enter the quaint and peaceful village, you breathe a sigh of relief and take a moment to rest and rejuvenate. However, as you drift off to sleep, you are suddenly jolted awake by a loud shattering sound. A jar has been hurled through the window, and its contents begin to seep out, filling the room with a noxious and unknown gas. You try to cover your mouth and nose, but it's too late. The gas overwhelms your senses, and your vision blurs as you collapse to the ground, your adventure ending in a tragic and unexpected twist. Game over.",
+      "As you enter the quaint and peaceful village, you breathe a sigh of relief and take a moment to rest and rejuvenate. However, as you drift off to sleep, you are suddenly jolted awake by a loud shattering sound. A jar has been hurled through the window, and its contents begin to seep out, filling the room with a noxious and unknown gas. You try to cover your mouth and nose, but it's too late. The gas overwhelms your senses, and your vision blurs as you collapse to the ground, your adventure ending in a tragic and unexpected twist.",
+    poison: true,
     options: [],
   },
   {
@@ -97,8 +103,10 @@ const gameStory = [
     id: 12,
     story:
       "As you attempt to traverse the rushing river, you quickly realize that it is far deeper and stronger than you anticipated. The force of the water drags you under, and you succumb to the currents, your adventure ending in a tragic and watery demise. Game over.",
+    youDied: true,
     options: [],
   },
+
   {
     id: 13,
     story:
@@ -112,6 +120,7 @@ const gameStory = [
     id: 14,
     story:
       "as you approach the towering castle, you notice an army of heavily armed guards patrolling the perimeter, their watchful eyes scanning the horizon for any sign of intruders. You weigh your options carefully, but before you can make a move, They spot you and, with no mercy, capture you, bringing your adventure to an abrupt end. Game over.",
+    youDied: true,
     options: [],
   },
   {
@@ -146,12 +155,14 @@ const gameStory = [
     id: 18,
     story:
       "You try to convince your captors to release you, but they don't listen. They execute you on the spot. Game over.",
+    youDied: true,
     options: [],
   },
   {
     id: 19,
     story:
-      "As you make your way past the forest, an ominous shadow catches your eye in the murky sky above. You freeze in terror as it rapidly descends towards you, revealing a monstrous bird with razor-sharp talons and a gaping beak filled with jagged teeth. Before you can even scream, the colossal creature swoops down with lightning speed and snatches you up in its deadly grip. You feel its crushing force as you helplessly struggle, only to be ripped apart by its savage jaws, your screams echoing through the woods as your life is brutally ended.Game Over",
+      "As you make your way past the forest, an ominous shadow catches your eye in the murky sky above. You freeze in terror as it rapidly descends towards you, revealing a monstrous bird with razor-sharp talons and a gaping beak filled with jagged teeth. Before you can even scream, the colossal creature swoops down with lightning speed and snatches you up in its deadly grip. You feel its crushing force as you helplessly struggle, only to be ripped apart by its savage jaws, your screams echoing through the woods as your life is brutally ended. Game Over.",
+    youDied: true,
     options: [],
   },
 ];

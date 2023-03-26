@@ -1,6 +1,4 @@
-//function spiderText(string) {
-//return console.log(`\x1b[42m\x1b[30m${string}\x1b[0m`);
-(function () {
+function poison() {
   var frame = 0;
   var frames = [
     "You",
@@ -22,6 +20,10 @@
 
     console.log(`\x1b[42m\x1b[30m${frames[frame]}\x1b[0m`);
 
+    if (frame === 12) {
+      return;
+    }
+
     setTimeout(
       showNext,
       frames[frame] === "Poisoned!" || frames[frame] === "         "
@@ -35,4 +37,6 @@
     }
   };
   showNext();
-})();
+}
+
+module.exports = { poison };
