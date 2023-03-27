@@ -4,7 +4,8 @@ const { poison } = require("./functions/interactive.js");
 
 const youDied = textFunctions.youDiedText;
 const danger = textFunctions.dangerText;
-const Bleed = textFunctions.BleedText;
+const bleed = textFunctions.bleedText;
+const pressText = textFunctions.pressText;
 
 async function getStory(storyId) {
   const storyResult = await fetch(`http://localhost:3000/story/${storyId}`);
@@ -12,7 +13,8 @@ async function getStory(storyId) {
 
   if (data.hasOwnProperty("poison")) {
     console.log(data.story);
-    setTimeout(poison, 8000);
+    setTimeout(poison, 5000);
+    setTimeout(pressText, 9250);
   } else if (data.hasOwnProperty("youDied")) {
     console.log(data.story);
     youDied();
@@ -24,14 +26,17 @@ async function getStory(storyId) {
 async function getOptions(optionsId) {
   const optionResult = await fetch(`http://localhost:3000/story/${optionsId}`);
   const data = await optionResult.json();
+
+  if (data.options.length === 0) {
+    return null;
+  }
+
   const option = data.options.map((option) => {
     return option.descriptionText;
   });
-  console.log("option", option);
   const userResponse = readlineSync.keyInSelect(option, "What do you do now?");
 
   const nextPath = data.options[userResponse].nextPath;
-  console.log("nextPath", nextPath);
   return nextPath;
 }
 
@@ -48,15 +53,23 @@ async function cursedKingdom() {
 
   console.log(`Welcome to your demise ${formattedUserName}!`);
 
-  getStory(1);
-  const startOption = await getOptions(1);
+  let storyId = 1;
+  let optionsId = 1;
 
-  getStory(startOption);
+  while (true) {
+    await getStory(storyId);
+    const nextOptions = await getOptions(optionsId);
 
-  const nextOptions = await getOptions(startOption);
+    if (nextOptions === null) {
+      console.log(" ");
+      break;
+    }
 
-  getStory(nextOptions);
-  // instead of calling each function after another design a loop
+    storyId = nextOptions;
+    optionsId = nextOptions;
+    console.clear();
+  }
 }
+
 cursedKingdom();
 module.exports = { cursedKingdom };

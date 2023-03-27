@@ -31,6 +31,7 @@ const gameStory = [
       { descriptionText: "Wait for the captors to leave.", nextPath: 5 },
     ],
   },
+
   {
     id: 4,
     story:
@@ -41,6 +42,7 @@ const gameStory = [
       { descriptionText: "Head towards the forest.", nextPath: 15 },
     ],
   },
+
   {
     id: 5,
     story:
@@ -48,6 +50,7 @@ const gameStory = [
     poison: true,
     options: [],
   },
+
   {
     id: 6,
     story:
@@ -55,6 +58,7 @@ const gameStory = [
     youDied: true,
     options: [],
   },
+
   {
     id: 7,
     story:
@@ -67,6 +71,7 @@ const gameStory = [
       },
     ],
   },
+
   {
     id: 8,
     story:
@@ -74,6 +79,7 @@ const gameStory = [
     poison: true,
     options: [],
   },
+
   {
     id: 9,
     story:
@@ -83,6 +89,7 @@ const gameStory = [
       { descriptionText: "Avoid the village and keep moving.", nextPath: 11 },
     ],
   },
+
   {
     id: 10,
     story:
@@ -90,6 +97,7 @@ const gameStory = [
     poison: true,
     options: [],
   },
+
   {
     id: 11,
     story:
@@ -99,6 +107,7 @@ const gameStory = [
       { descriptionText: "Follow the river.", nextPath: 13 },
     ],
   },
+
   {
     id: 12,
     story:
@@ -116,6 +125,7 @@ const gameStory = [
       { descriptionText: "Keep moving.", nextPath: 15 },
     ],
   },
+
   {
     id: 14,
     story:
@@ -123,6 +133,7 @@ const gameStory = [
     youDied: true,
     options: [],
   },
+
   {
     id: 15,
     story:
@@ -132,6 +143,7 @@ const gameStory = [
       { descriptionText: "Go around the forest.", nextPath: 19 },
     ],
   },
+
   {
     id: 16,
     story:
@@ -151,6 +163,7 @@ const gameStory = [
       { descriptionText: "attack your captors", nextPath: 4 },
     ],
   },
+
   {
     id: 18,
     story:
@@ -158,6 +171,7 @@ const gameStory = [
     youDied: true,
     options: [],
   },
+
   {
     id: 19,
     story:

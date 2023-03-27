@@ -1,3 +1,5 @@
+const readlineSync = require("readline-sync");
+
 function youDiedText() {
   return console.log("\x1B[31mYOU DIED!\x1B[0m");
 }
@@ -9,28 +11,38 @@ function dangerText(string) {
 function spiderText(string) {
   return console.log(`\x1b[42m\x1b[30m${string}\x1b[0m`);
 }
-function BleedText(string) {
+function bleedText(string) {
   return console.log(`\x1b[41m\x1b[1m${string}\x1b[0m`);
 }
 
-function pressText(string) {
+function pressText() {
+  console.log("Press 'p' to fight the poison!!! You WILL DIE IN 5 SECONDS");
+
   let count = 0;
+  let timer;
 
-  // Set up input stream to read from the terminal
+  process.stdin.setRawMode(true);
   process.stdin.resume();
-  process.stdin.setEncoding("utf8");
 
-  // Add event listener to detect when a key is pressed
   process.stdin.on("data", function (key) {
-    // If the key pressed is 'q', exit the program
-    if (key === "p") {
-      console.log(`You pressed the button ${count} times.`);
-      process.exit();
+    if (key.toString() === "p") {
+      count++;
     }
-
-    // Otherwise, increment the count variable
-    count++;
   });
+
+  timer = setTimeout(() => {
+    if (count > 28) {
+      console.log("You beat the poison!");
+      console.log(
+        `You pressed the button ${count} times... you broke your finger and can no longer play the game!`
+      ),
+        youDiedText();
+    } else {
+      console.log(`You pressed the button ${count} times.`);
+      youDiedText();
+    }
+    process.exit();
+  }, 5000);
 }
 
-module.exports = { dangerText, youDiedText, spiderText, BleedText };
+module.exports = { dangerText, youDiedText, spiderText, bleedText, pressText };

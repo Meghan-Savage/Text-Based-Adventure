@@ -20,11 +20,6 @@ app.get("/story/:id", (req, res) => {
   }
 });
 
-app.get("/gameover", (req, res) => {
-  youDied();
-  process.exit();
-});
-
 // "/story"is an endpoint
 app.get("/story", (req, res) => {
   res.send(story);
