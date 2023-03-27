@@ -1,6 +1,7 @@
 const readlineSync = require("readline-sync");
 const textFunctions = require("./functions/text-functions");
 const { poison } = require("./functions/interactive.js");
+const { openFile } = require("./public/test");
 
 const youDied = textFunctions.youDiedText;
 const danger = textFunctions.dangerText;
@@ -19,6 +20,8 @@ async function getStory(storyId) {
     console.log(data.story);
     youDied();
     process.exit();
+  } else if (data.hasOwnProperty("petTheDog")) {
+    openFile();
   } else {
     console.log(data.story);
   }

@@ -148,7 +148,7 @@ const gameStory = [
     id: 16,
     story:
       "As you weave your way through the dense foliage of the forest, you eventually stumble upon a small clearing that opens up before you. Within the clearing, you catch a glimpse of a lone dog, its fur matted and its eyes gleaming with curiosity.",
-    options: ["Pet the dog."],
+    options: [{ descriptionText: "Pet the dog.", nextPath: 20 }],
   },
 
   {
@@ -177,6 +177,13 @@ const gameStory = [
     story:
       "As you make your way past the forest, an ominous shadow catches your eye in the murky sky above. You freeze in terror as it rapidly descends towards you, revealing a monstrous bird with razor-sharp talons and a gaping beak filled with jagged teeth. Before you can even scream, the colossal creature swoops down with lightning speed and snatches you up in its deadly grip. You feel its crushing force as you helplessly struggle, only to be ripped apart by its savage jaws, your screams echoing through the woods as your life is brutally ended. Game Over.",
     youDied: true,
+    options: [],
+  },
+
+  {
+    id: 20,
+    story: "You pet the dog!",
+    petTheDog: true,
     options: [],
   },
 ];
