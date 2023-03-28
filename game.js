@@ -1,6 +1,6 @@
 const readlineSync = require("readline-sync");
 const textFunctions = require("./functions/text-functions");
-const { poison } = require("./functions/interactive.js");
+const { poison } = require("./functions/text-functions");
 const { openFile } = require("./public/test");
 
 const youDied = textFunctions.youDiedText;

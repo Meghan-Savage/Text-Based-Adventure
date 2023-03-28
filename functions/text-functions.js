@@ -34,7 +34,7 @@ function pressText() {
     if (count > 28) {
       console.log("You beat the poison!");
       console.log(
-        `You pressed the button ${count} times... you broke your finger and can no longer play the game!`
+        `You pressed the button ${count} times... Weak finger game git gud`
       ),
         youDiedText();
     } else {
@@ -44,5 +44,52 @@ function pressText() {
     process.exit();
   }, 5000);
 }
+function poison() {
+  var frame = 0;
+  var frames = [
+    "You",
+    "Are",
+    "Poisoned!",
+    "         ",
+    "Poisoned!",
+    "         ",
+    "Poisoned!",
+    "         ",
+    "Poisoned!",
+    "         ",
+    "Poisoned!",
+    "         ",
+    "Poisoned!",
+  ];
+  var showNext = () => {
+    console.clear();
 
-module.exports = { dangerText, youDiedText, spiderText, bleedText, pressText };
+    console.log(`\x1b[42m\x1b[30m${frames[frame]}\x1b[0m`);
+
+    if (frame === 12) {
+      return;
+    }
+
+    setTimeout(
+      showNext,
+      frames[frame] === "Poisoned!" || frames[frame] === "         "
+        ? 100
+        : 1500
+    );
+    // next frame and loop
+    frame++;
+    if (frame >= frames.length) {
+      frame = 0;
+    }
+  };
+  showNext();
+}
+
+module.exports = {
+  dangerText,
+  youDiedText,
+  spiderText,
+  bleedText,
+  pressText,
+  poison,
+};
