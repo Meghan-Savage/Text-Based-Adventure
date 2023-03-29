@@ -16,12 +16,17 @@ app.get("/story/:id", (req, res) => {
     }
   }
 });
+
 app.get("/story", (req, res) => {
   res.send(gameStory);
 });
 
 app.get("/", (req, res) => {
   res.send("homepage");
+});
+
+app.get("*", (req, res) => {
+  res.status(404).send("<h1>404 not found</h1>");
 });
 
 app.listen(port, () => {

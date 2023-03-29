@@ -1,4 +1,5 @@
 const readlineSync = require("readline-sync");
+const axios = require("axios");
 const textFunctions = require("./functions/text-functions");
 const { poison } = require("./functions/text-functions");
 const { openFile } = require("./public/test");
@@ -9,8 +10,16 @@ const bleed = textFunctions.bleedText;
 const pressText = textFunctions.pressText;
 
 async function getStory(storyId) {
-  const storyResult = await fetch(`http://localhost:3000/story/${storyId}`);
-  const data = await storyResult.json();
+  let storyResult;
+  let data;
+
+  try {
+    storyResult = await axios.get(`http://localhost:3000/story/${storyId}`);
+    data = await storyResult.data;
+  } catch (error) {
+    console.error(error);
+    throw new Error("Failed to retrieve story");
+  }
 
   if (data.hasOwnProperty("poison")) {
     console.log(data.story);
@@ -27,8 +36,10 @@ async function getStory(storyId) {
   }
 }
 async function getOptions(optionsId) {
-  const optionResult = await fetch(`http://localhost:3000/story/${optionsId}`);
-  const data = await optionResult.json();
+  const optionResult = await axios.get(
+    `http://localhost:3000/story/${optionsId}`
+  );
+  const data = await optionResult.data;
 
   if (data.options.length === 0) {
     return null;
@@ -38,7 +49,14 @@ async function getOptions(optionsId) {
     return option.descriptionText;
   });
   const userResponse = readlineSync.keyInSelect(option, "What do you do now?");
-
+  if (userResponse === -1) {
+    console.clear();
+    console.log(
+      "You ran away like a coward, tripping over your own feet and falling into a pit of snakes "
+    );
+    youDied();
+    process.exit();
+  }
   const nextPath = data.options[userResponse].nextPath;
   return nextPath;
 }
@@ -74,5 +92,4 @@ async function cursedKingdom() {
   }
 }
 
-cursedKingdom();
 module.exports = { cursedKingdom };

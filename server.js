@@ -1,6 +1,6 @@
 const express = require("express");
 const { youDied } = require("./functions/text-functions");
-const story = require("./story");
+const { gameStory } = require("./story");
 
 const app = express();
 const port = 3000;
@@ -9,13 +9,14 @@ const port = 3000;
 app.get("/story/:id", (req, res) => {
   const storyId = +req.params.id;
 
-  if (!parseInt(storyId)) {
+  if (!parseInt(storyId) || storyId < 1 || storyId > gameStory.length) {
     res.status(404).send("<h1>Story Not Found</h1>");
   }
 
-  for (let i in story.gameStory) {
-    if (storyId === story.gameStory[i].id) {
-      res.send(story.gameStory[i]);
+  // for (let i = 0; i < gameStory.length; i++)
+  for (let i in gameStory) {
+    if (storyId === gameStory[i].id) {
+      res.send(gameStory[i]);
     }
   }
 });

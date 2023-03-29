@@ -34,11 +34,11 @@ function pressText() {
     if (count > 28) {
       console.log("You beat the poison!");
       console.log(
-        `You pressed the button ${count} times... Weak finger game git gud`
+        `You pressed the button ${count} times... Breaking your weak finger. Git Gud`
       ),
         youDiedText();
     } else {
-      console.log(`You pressed the button ${count} times.`);
+      console.log(`You pressed the button ${count} times.Too slow Git Gud`);
       youDiedText();
     }
     process.exit();
